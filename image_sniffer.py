@@ -12,12 +12,12 @@ def response(packet):
             if extension == "jpeg":
                 extension = "jpg"
 
-                file_name = f"../image_sniff/{url.replace('/', '_').replace(':', '_')}.{extension}"
-                image_data = packet.response.content
+            file_name = f"../image_sniff/{url.replace('/', '_').replace(':', '_')}.{extension}"
+            image_data = packet.response.content
 
-                with open(file_name, "wb") as f:
-                    f.write(image_data)
+            with open(file_name, "wb") as f:
+                f.write(image_data)
 
-                print(f"[+] Image saved: {file_name}")
+            print(f"[+] Image saved: {file_name}")
     except:
         pass
