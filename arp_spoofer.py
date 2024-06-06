@@ -21,7 +21,7 @@ def run_spoofer():
         spoof(arguments.target_ip, router_ip)
         spoof(router_ip, arguments.target_ip)
 
-        time.sleep(2)
+        time.sleep(1)
 
 if __name__ == "__main__":
     run_spoofer()
