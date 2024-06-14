@@ -3,6 +3,7 @@
 import requests
 import signal
 import sys
+import time
 
 from termcolor import colored
 from base64 import b64encode
@@ -46,8 +47,10 @@ def write_stdin(command):
     r = requests.get(main_url, params=data)
 
 def read_stdout():
-    read_stdout_command = f"/bin/cat {stdout}"
-    output_command = run_command(read_stdout_command)
+    for _ in range(5):
+        read_stdout_command = f"/bin/cat {stdout}"
+        output_command = run_command(read_stdout_command)
+        time.sleep(0.2)
 
     return output_command
 
